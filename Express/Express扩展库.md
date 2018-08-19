@@ -1,3 +1,9 @@
+### cookie-parser库
+基于cookie的用户验证
+```
+npm install cookie-parser --save
+```
+
 ### fs库
 主要用于文件操作
 ```
