@@ -113,3 +113,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 ### mssql库
 [官方文档](https://github.com/tediousjs/node-mssql#readme)
+
+### utility
+[官方文档](https://www.npmjs.com/package/utility)
