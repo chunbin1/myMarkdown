@@ -4,6 +4,7 @@
 
 socket.io-client前端
 
+
 #### work with express
 服务端
 ```
@@ -12,6 +13,13 @@ const app = express();
 const server = require("http").Server(app);
 // socket.io
 const io = require("socket.io")(server);
+
+
+io.on("connection", function(socket) {
+  socket.on("sendmsg", function(data) {
+    io.emit("recvmsg",data);
+  }
+}
 
 server.listen(9093, function() {
   console.log("Node app start at port 9093");
