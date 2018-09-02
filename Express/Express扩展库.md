@@ -1,3 +1,30 @@
+### socket.io
+基于时间的实时双向通信库
+基于websocket协议
+
+socket.io-client前端
+
+#### work with express
+服务端
+```
+// work with express
+const app = express();
+const server = require("http").Server(app);
+// socket.io
+const io = require("socket.io")(server);
+
+server.listen(9093, function() {
+  console.log("Node app start at port 9093");
+});
+```
+#### 客户端
+```
+
+```
+
+
+### browser-cookies库
+
 ### cookie-parser库
 基于cookie的用户验证
 ```
