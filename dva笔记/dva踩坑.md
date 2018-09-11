@@ -39,3 +39,13 @@ export default connect(({ products }) => ({
 state.products是state中products。
 
 
+### dva转发（解决跨域问题）
+在.webpackrc中添加
+下面的转发地址为'http://localhost:3000/rQ'
+```
+  "proxy":{
+    "/rQ":{
+      "target":"http://localhost:3000",
+      "changeOrigin":true
+    }
+```

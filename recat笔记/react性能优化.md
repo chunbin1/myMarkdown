@@ -37,10 +37,10 @@ React.createElement(
 1. 组件性能优化
   1) 可以定制shouldComponentUpdate()
     来决定是否重新渲染 
-    this.setState()
-  2) 属性传递优化
-  3) 多组件优化
-  4) KEY
+  2) 使用PureComponent代替,根据值来渲染的时候使用，性能很好
+  3) 属性传递优化
+  4) 多组件优化
+  5) KEY
 2. Redux性能优化
 3. React同构
   服务端渲染
