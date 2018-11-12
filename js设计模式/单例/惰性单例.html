@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>惰性单例</title>
+</head>
+<body>
+  <button id="loginBtn">登录</button>
+  <button id='iframe'>内置网页</button>
+</body>
+
+<script>
+  /*
+    通用的惰性单例:把管理单例的逻辑从代码中抽象出来
+
+  */
+  var getSingle = function(fn){
+    var result;
+    return function(){
+      return result||(result = fn.apply(this,arguments))
+    }
+  }
+
+  var createLoginLayer = function(){
+    var div = document.createElement('div')
+    div.innerHTML = '我是登录浮窗'
+    div.style.display = 'none'
+    document.body.appendChild(div)
+    return div
+  }
+
+  var createFrame = function(){
+    var iframe = document.createElement('iframe')
+    document.body.appendChild(iframe)
+    return iframe
+  }
+
+  var createSingleIframe = getSingle(createFrame)
+  var createSingleLoginLayer = getSingle(createLoginLayer)
+
+   document.getElementById('iframe').onclick = function(){
+     var iframeLayout = createSingleIframe()
+     iframeLayout.src = 'http://baidu.com'
+   }
+
+   document.getElementById('loginBtn').onclick = function(){
+    var loginLayer = createSingleLoginLayer()
+    loginLayer.style.display=loginLayer.style.display === 'block'?'none':'block'
+  }
+
+  // var createLoginLayer =(function(){
+  //   var div 
+  //   return function(){
+  //     if(!div){
+  //       div = document.createElement('div')
+  //       div.innerHTML = '我是登录窗'
+  //       div.style.display = 'none'
+  //       document.body.appendChild(div)
+  //     }
+  //     return div
+  //   } 
+  // })()
+
+  // document.getElementById('loginBtn').onclick = function(){
+  //   var loginLayer = createLoginLayer()
+  //   loginLayer.style.display = 'block'
+  // }
+</script>
+</html>
