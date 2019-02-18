@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tarbar</title>
+    <style>
+    *{
+   margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.container{
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  height: 100px;
+  background: #ddd;
+  flex-shrink:0;   /* 用来解决上下100px高度不一样 */
+}
+
+footer ul{
+  height: 100px;
+  background: #ddd;
+}
+
+main{
+  flex-grow:1;
+  overflow:auto;
+}
+
+footer>ul{
+  display:flex;
+}
+
+footer>ul>li{
+  background: red;
+  width: 25%;
+  height: 100%;
+  border:1px solid black;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>header</header>
+        <main>assdf
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+            <p>main</p>
+
+        </main>
+        <footer>
+            <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                <li>d</li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>
