@@ -1,7 +1,0 @@
-connect方法将组件与数据关联在一起
-export default connect(({ secUser }) => ({ secUser}))(User)
-secUser 必须与对应 models 里面定义的 namespace 字段一致
-组件中发起请求调用 dispatch
-
-    type 字段对应 models 中 effects 和 reducers 对应方法
-    payload 为传参对象
