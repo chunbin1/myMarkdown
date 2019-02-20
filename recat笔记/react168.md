@@ -141,4 +141,93 @@ function App() {
 ```
 [example](https://codesandbox.io/s/4rn18o6r00)
 
+#### 最后实践一下
+写一个useOutsideClick
+```
+function useOutsideClick(ref,fuc){
+  useEffect(()=>{
+    const handleClickOutside = (e) => { if(e.target!==ref.current){fuc()} }
+    window.addEventListener('click' ,handleClickOutside)
+    return () => {
+      window.removeEventListener('click', handleClickOutside)
+    }
+  }
+  )
+}
+```
+使用(非常的简单)：
+```
+function App() {
+  const ref = useRef(null);
+  useOutsideClick(ref, () => {
+    console.log('OUTSIDE CLICKED');
+  });
+
+  return (
+    <div ref={ref} style={{
+      width: 200,
+      height: 200,
+      background: 'red',
+    }} />
+  );
+}
+```
+[demo](https://codesandbox.io/s/w70vjzm66l)
+
+#### useReducer
+让我们来回忆一下 使用redux使用reducer
+```
+1.首先创建一个store index.store.js
+export default function configStore(){
+    const store = createStore(rootReducer,applyMiddleware(...middlewares))
+    return store
+}
+
+2.引入store app.js
+  render() {
+    return (
+      <Provider store={store}>
+        <Index />
+      </Provider>
+    )
+  }
+
+3.定义action和创建reducder index.action.js index.reducer.js
+export const ADD = 'ADD'
+export const DELETE = 'DELETE'
+function todos(state = INITAL_STATE, action) {
+  switch action.type{
+    case ADD:{...}
+    case DELETE:{...}
+  }
+}
+
+4.页面中使用reducer  component.js
+export default connect(mapStateToProps, mapDispatchToProps)(Component);
+```
+太复杂了有没有，（使用dva可以简化写法）
+而使用useReducer可以省略很多代码:
+```
+//index.js
+  const { state, dispatch } = useContext(reducerContext);
+  return (
+    <div className="App">
+      <>
+        Count: {state.count}
+        <button
+          onClick={() => dispatch({ type: "reset", payload: { count: 0 } })}
+        >
+          Reset
+        </button>
+        <button onClick={() => dispatch({ type: "increment" })}>+</button>
+        <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+        <reducerContext.Provider value={{ state, dispatch }}>
+          <ChangeCount />
+        </reducerContext.Provider>
+      </>
+    </div>
+  );
+```
+但是不知是否有像查看store的浏览器插件，或者redux-logger这样的中间件帮助我们查看状态的变化，redux的生态还是更好一点的
+[demo](https://codesandbox.io/s/y0mol0m789)
 
