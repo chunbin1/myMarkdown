@@ -228,6 +228,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Component);
     </div>
   );
 ```
-但是不知是否有像查看store的浏览器插件，或者redux-logger这样的中间件帮助我们查看状态的变化，redux的生态还是更好一点的
+但是hook的useReducer并不能共享数据，可以参考redux-react的实现，使用content包裹，实现数据共享，可以使用开源项目react-redux-hook。
+目前也没有查看store的浏览器插件，或者redux-logger这样的中间件帮助我们查看状态的变化，redux的生态还是更好一点的，建议还是使用redux-react
 [demo](https://codesandbox.io/s/y0mol0m789)
 
