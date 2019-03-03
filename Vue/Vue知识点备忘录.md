@@ -63,5 +63,5 @@ fullName:{
 
 #### watch
 监听某一个数据变化，需要在数据变化时执行异步或开销较大的操作时候，这个方法最有用
-[example]('newValue)
+[example]('https://jsbin.com/basazek/edit?html,console,output')
 
