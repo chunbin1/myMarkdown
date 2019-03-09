@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>list</title>
+</head>
+<body>
+  <script>
+    function Node(data){
+  this.data = data
+  this.next = null;
+}
+
+class List {
+  length = 0
+  constructor() {
+    this.head = new Node('head');
+  }
+
+  // 头部插入新节点
+  insertHead(newData) {
+    console.log(this.head.next);
+    let newNode = new Node(newData);
+    if(this.length===0){
+      this.head.next  = newNode;
+      this.length+=1;
+      return      
+    }
+    newNode.next = this.head.next;
+    this.head.next= newNode
+  }
+
+  print(){
+    let curNode = this.head
+    while(curNode.next){
+      console.log(curNode.next.data);
+      curNode = curNode.next
+    }
+  }
+}
+
+let list = new List()
+list.insertHead('data')
+list.insertHead('data2')
+list.print()
+
+</script>
+</body>
+</html>
