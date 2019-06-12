@@ -6,7 +6,6 @@
     3. 删除该方法
 */
 
-// 第三版
 Function.prototype.call2 = function (context) {
   var context = context || window;
   context.fn = this;

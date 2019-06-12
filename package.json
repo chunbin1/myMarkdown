@@ -1,0 +1,25 @@
+{
+  "name": "mymarkdown",
+  "version": "1.0.0",
+  "description": "会记录学习过程中的问题，技术包括： js es6 react dva express nodejs",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aledenn/myMarkdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aledenn/myMarkdown/issues"
+  },
+  "homepage": "https://github.com/Aledenn/myMarkdown#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

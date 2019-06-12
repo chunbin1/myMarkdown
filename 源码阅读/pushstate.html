@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pushState和hashchange</title>
+</head>
+<body>
+  <div id='#pop'></div>
+  <button id="button">点击事件</button>
+  <button id='hashbutton'>哈希按钮</button>
+  <a href="#a">a</a>
+  <a href="#b">b</a>
+
+</body>
+<script> 
+  
+  // document.addEventListener('popstate',function(e){
+  //   console.log('popstate');
+  //   console.log(e)
+  // })
+
+  window.addEventListener('hashchange', function(e) {
+        console.log(e.oldURL);
+        console.log(e.newURL);
+    }, false);
+
+  document.querySelector('#button').addEventListener('click',handleClick)
+
+  function handleClick(e){
+    console.log(e);
+    history.pushState({name:Math.random()},'')
+  }
+
+  document.querySelector('#hashbutton').addEventListener('click',handleHash)
+
+  function handleHash(e){
+    history.pushState({name:Math.random()},'hashchange','/#/'+String(Math.random()))
+    location.reload()
+  }
+</script>
+</html>
