@@ -302,5 +302,3 @@ var result = 'abc'.repeat(2)
 console.log(result)
 // output: 'abcabc'
 ```
-
-### Util

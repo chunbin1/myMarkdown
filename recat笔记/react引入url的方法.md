@@ -16,5 +16,4 @@ REACT_APP_RECORDS_API_URL=https://5b62697507412d00142acf6e.mockapi.io
 import * as RecordsAPI from '../utils/RecordsAPI'
 RecordsAPI.getAll().then(...).catch(...)
 ```
-#### 
 
