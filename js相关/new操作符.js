@@ -7,22 +7,22 @@
  *
  *  */
 
-function A(name,age){
-  this.name = name
-  this.age = age
+function A(name, age) {
+  this.name = name;
+  this.age = age;
 }
 
-A.prototype.sayYourName = function(){
-  console.log('i am'+this.name)
-}
+A.prototype.sayYourName = function() {
+  console.log("i am" + this.name);
+};
 
 function New() {
   let res = {};
-  if (func.prototype !== null) {
-    res.__proto__ = func.prototype;
+  let [constructor, ...args] = [...arguments];
+  if (constructor.prototype !== null) {
+    res.__proto__ = constructor.prototype;
   }
   // 结构参数
-  let [constructor,...args] = [...arguments]
   // 执行构造函数 把属性或者方法添加到创建的空对象上
   let ret = constructor.apply(res, args);
   if ((typeof ret === "object" || typeof ret === "function") && ret !== null) {
@@ -33,6 +33,5 @@ function New() {
   return res;
 }
 
-const a = New(A,'sdfs',12)
-a.sayYourName()
-
+const a = New(A, "sdfs", 12);
+a.sayYourName();
