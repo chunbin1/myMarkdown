@@ -16,15 +16,20 @@ A.prototype.sayYourName = function(){
   console.log('i am'+this.name)
 }
 
-function New(func) {
-  var res = {};
+function New() {
+  let res = {};
   if (func.prototype !== null) {
     res.__proto__ = func.prototype;
   }
-  var ret = func.apply(res, Array.prototype.slice.call(arguments, 1));
+  // 结构参数
+  let [constructor,...args] = [...arguments]
+  // 执行构造函数 把属性或者方法添加到创建的空对象上
+  let ret = constructor.apply(res, args);
   if ((typeof ret === "object" || typeof ret === "function") && ret !== null) {
+    // 如果构造函数的返回是一个对象 返回这个对象
     return ret;
   }
+  // 否则返回新建的对象
   return res;
 }
 
