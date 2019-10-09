@@ -2,7 +2,7 @@ function quickSort(arr) {
   if (arr.length<=1) {return arr;}
   const left = [],
     right = [],
-    baseDot =Math.round(arr.length/2),
+    baseDot =Math.round(arr.length/2), // 随机获取基准数  也可以使用 左中尾的中间数
     base =arr.splice(baseDot, 1)[0];
 
   for (var i =0; i <arr.length; i++) {
