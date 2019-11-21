@@ -8,7 +8,7 @@
 
 Function.prototype.call2 = function (context) {
   var context = context || window;
-  context.fn = this;
+  context.fn = this;  // this为fn方法
 
   var args = [];
   for(var i = 1, len = arguments.length; i < len; i++) {
