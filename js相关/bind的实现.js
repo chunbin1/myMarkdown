@@ -30,3 +30,39 @@ if (!Function.prototype.bind) {
     return fBound;
   };
 }
+// 简要版本
+Function.prototype.bind2 = function(content) {
+  if(typeof this != "function") {
+      throw Error("not a function")
+  }
+  // 若没问参数类型则从这开始写
+  let fn = this;
+  let args = [...arguments].slice(1);
+  
+  let resFn = function() {
+      return fn.apply(this instanceof resFn ? this : content,args.concat(...arguments) )
+  }
+  // bind要考虑原型链的影响
+  function tmp() {}
+  tmp.prototype = this.prototype;
+  resFn.prototype = new tmp();
+  
+  return resFn;
+}
+
+
+// 测试
+const obj = {
+  value: 123
+}
+
+function bindTest(){
+  console.log(this.value)
+}
+
+bindTest.prototype.value = 12
+
+bindTest.bind2(obj)()  // 123
+bindTest() // undefined
+const a = new bindTest()  // 12
+console.log(a)
