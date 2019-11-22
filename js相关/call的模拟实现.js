@@ -21,6 +21,14 @@ Function.prototype.call2 = function (context) {
   return result;
 }
 
+Function.prototype.call3 = function(content = window) {
+  content.fn = this;
+  let args = [...arguments].slice(1);
+  let result = content.fn(...args);
+  delete content.fn;
+  return result;
+}
+
 // 测试一下
 var value = 2;
 
