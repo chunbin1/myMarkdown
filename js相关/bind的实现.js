@@ -37,6 +37,7 @@ Function.prototype.bind2 = function(content) {
   }
   // 若没问参数类型则从这开始写
   let fn = this;
+  // 获取后面的传参
   let args = [...arguments].slice(1);
   
   let resFn = function() {
